@@ -15,15 +15,14 @@ class SpriteManager: ObservableObject {
     @Published var currentSprite: SpriteModel
     
     let availableSprites = [
+        SpriteModel(name: "Mushy", assetName: "mushroom", frameWidth: 48, frameHeight: 48, scale: 0.6),
         SpriteModel(name: "Mort", assetName: "DinoSprites-mort", scale: 1.2),
         SpriteModel(name: "Doux", assetName: "DinoSprites-doux", scale: 1.2),
         SpriteModel(name: "tard", assetName: "DinoSprites-tard", scale: 1.2),
         SpriteModel(name: "knight", assetName: "Kinght", frameWidth: 22, frameHeight: 24, scale: 1.2), //the framewidth is the width of the image/number of frames
         SpriteModel(name: "Bob", assetName: "GreenFrog", frameWidth: 48, frameHeight: 48),
         SpriteModel(name: "Cherry", assetName: "cat", frameWidth: 80, frameHeight: 64),
-        SpriteModel(name: "Jonathan", assetName: "Stickman", frameWidth: 64, frameHeight: 64, scale: 0.6),
-        SpriteModel(name: "Mushy", assetName: "mushroom", frameWidth: 48, frameHeight: 48, scale: 0.6),
-        
+        SpriteModel(name: "Jonathan", assetName: "Stickman", frameWidth: 64, frameHeight: 64, scale: 0.6)
         
     ]
     
