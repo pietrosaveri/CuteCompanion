@@ -9,6 +9,8 @@
 
 <p align="center">
   <img src="Gifs/mushroom.gif" width="50" style="margin: 0 10px;">
+  <img src="Gifs/funnyDuck.gif" width="50" style="margin: 0 10px;">
+
 </p>
 
 <h3 align="center">

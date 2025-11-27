@@ -29,7 +29,8 @@ class SpriteManager: ObservableObject {
         SpriteModel(name: "Jonathan", assetName: "Stickman", frameWidth: 64, frameHeight: 64, scale: 0.6),
         SpriteModel(name: "Vampy The Bat", assetName: "bat", frameWidth: 32, frameHeight: 32, scale: 1.8),
         SpriteModel(name: "Pinguy", assetName: "Pinguin", frameWidth: 64, frameHeight: 64, yOffset: 9, cutLeft: 20, cutRight: 20),
-        SpriteModel(name: "Riccy", assetName: "riccio", frameWidth: 31, frameHeight: 23, scale: 1.5, cutLeft: 5, cutRight: 5)
+        SpriteModel(name: "Riccy", assetName: "riccio", frameWidth: 31, frameHeight: 23, scale: 1.5, cutLeft: 5, cutRight: 5),
+        SpriteModel(name: "Shuba Duck", assetName: "funnyduck", frameWidth: 64, frameHeight: 64, scale: 0.45)
     ]
     
     private var frames: [NSImage] = []
