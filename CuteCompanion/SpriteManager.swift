@@ -16,6 +16,15 @@ struct SpriteModel: Identifiable, Hashable {
 class SpriteManager: ObservableObject {
     @Published var currentFrame: NSImage?
     @Published var currentSprite: SpriteModel
+    @Published var alwaysAnimate: Bool = false {
+        didSet {
+            if alwaysAnimate {
+                startAnimation()
+            } else {
+                stopAnimation()
+            }
+        }
+    }
     
     let availableSprites = [ //the framewidth is the width of the image/number of frames
         SpriteModel(name: "Duky the Duck", assetName: "Duck", frameWidth: 32, frameHeight: 32, yOffset: -3),
@@ -30,7 +39,10 @@ class SpriteManager: ObservableObject {
         SpriteModel(name: "Vampy The Bat", assetName: "bat", frameWidth: 32, frameHeight: 32, scale: 1.8),
         SpriteModel(name: "Pinguy", assetName: "Pinguin", frameWidth: 64, frameHeight: 64, yOffset: 9, cutLeft: 20, cutRight: 20),
         SpriteModel(name: "Riccy", assetName: "riccio", frameWidth: 31, frameHeight: 23, scale: 1.5, cutLeft: 5, cutRight: 5),
-        SpriteModel(name: "Shuba Duck", assetName: "funnyduck", frameWidth: 64, frameHeight: 64, scale: 0.45)
+        SpriteModel(name: "Shuba Duck", assetName: "funnyduck", frameWidth: 64, frameHeight: 64, scale: 0.45),
+        SpriteModel(name: "Pika", assetName: "pikachu", frameWidth: 64, frameHeight: 64, scale: 0.5),
+        SpriteModel(name: "Sexy Pika", assetName: "SexyPika", frameWidth: 64, frameHeight: 64, scale: 0.4),
+        SpriteModel(name: "Mario", assetName: "Mario", frameWidth: 64, frameHeight: 64, scale: 0.5)
     ]
     
     private var frames: [NSImage] = []

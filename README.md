@@ -19,7 +19,7 @@
 
 ---
 
-### 👋 Hi there!
+### The App
 
 **CuteCompanion** is a small, friendly animated sprite that lives in your Mac’s menu bar. A quiet, comforting presence to keep you company while you focus, create, grind, or procrastinate (most probably).
 

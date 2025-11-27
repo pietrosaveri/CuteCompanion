@@ -23,7 +23,10 @@ class AppCoordinator {
         
         mouseMonitor.onMouseStop = { [weak self] in
             DispatchQueue.main.async {
-                self?.spriteManager.stopAnimation()
+                guard let self = self else { return }
+                if !self.spriteManager.alwaysAnimate {
+                    self.spriteManager.stopAnimation()
+                }
             }
         }
         
