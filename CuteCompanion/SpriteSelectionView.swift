@@ -71,10 +71,23 @@ struct SpriteSelectionView: View {
         }
         .frame(width: 400, height: 300)
         .background(WindowAccessor { window in
-            window?.level = .floating
-            window?.makeKeyAndOrderFront(nil)
+            guard let window = window else { return }
+            window.level = .floating
+            window.center()
+            window.makeKeyAndOrderFront(nil)
             NSApplication.shared.activate(ignoringOtherApps: true)
         })
+    }
+}
+
+private final class AccessorView: NSView {
+    var callback: ((NSWindow?) -> Void)?
+    
+    override func viewDidMoveToWindow() {
+        super.viewDidMoveToWindow()
+        if let window = self.window {
+            callback?(window)
+        }
     }
 }
 
@@ -82,12 +95,15 @@ struct WindowAccessor: NSViewRepresentable {
     var callback: (NSWindow?) -> Void
 
     func makeNSView(context: Context) -> NSView {
-        let view = NSView()
-        DispatchQueue.main.async {
-            self.callback(view.window)
-        }
+        let view = AccessorView()
+        view.callback = callback
         return view
     }
 
-    func updateNSView(_ nsView: NSView, context: Context) {}
+    func updateNSView(_ nsView: NSView, context: Context) {
+        // Also trigger on update to catch re-renders or state changes
+        if let view = nsView as? AccessorView, let window = view.window {
+            view.callback?(window)
+        }
+    }
 }

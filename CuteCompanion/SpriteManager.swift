@@ -22,7 +22,8 @@ class SpriteManager: ObservableObject {
         SpriteModel(name: "knight", assetName: "Kinght", frameWidth: 22, frameHeight: 24, scale: 1.2), //the framewidth is the width of the image/number of frames
         SpriteModel(name: "Bob", assetName: "GreenFrog", frameWidth: 48, frameHeight: 48),
         SpriteModel(name: "Cherry", assetName: "cat", frameWidth: 80, frameHeight: 64),
-        SpriteModel(name: "Jonathan", assetName: "Stickman", frameWidth: 64, frameHeight: 64, scale: 0.6)
+        SpriteModel(name: "Jonathan", assetName: "Stickman", frameWidth: 64, frameHeight: 64, scale: 0.6),
+        SpriteModel(name: "Vampy The Bat", assetName: "bat", frameWidth: 32, frameHeight: 32, scale: 1.8)
         
     ]
     

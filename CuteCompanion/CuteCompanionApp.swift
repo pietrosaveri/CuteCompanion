@@ -59,6 +59,9 @@ struct CuteCompanionApp: App {
         
         Window("Companion Selector", id: "companion-selector") {
             SpriteSelectionView(spriteManager: spriteManager)
+                .onAppear {
+                    NSApplication.shared.activate(ignoringOtherApps: true)
+                }
         }
         .windowResizability(.contentSize)
     }
