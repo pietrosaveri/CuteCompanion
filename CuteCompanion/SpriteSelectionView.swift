@@ -1,4 +1,5 @@
 import SwiftUI
+import AppKit
 
 struct SpritePreviewView: View {
     let frames: [NSImage]
@@ -69,5 +70,24 @@ struct SpriteSelectionView: View {
             }
         }
         .frame(width: 400, height: 300)
+        .background(WindowAccessor { window in
+            window?.level = .floating
+            window?.makeKeyAndOrderFront(nil)
+            NSApplication.shared.activate(ignoringOtherApps: true)
+        })
     }
+}
+
+struct WindowAccessor: NSViewRepresentable {
+    var callback: (NSWindow?) -> Void
+
+    func makeNSView(context: Context) -> NSView {
+        let view = NSView()
+        DispatchQueue.main.async {
+            self.callback(view.window)
+        }
+        return view
+    }
+
+    func updateNSView(_ nsView: NSView, context: Context) {}
 }

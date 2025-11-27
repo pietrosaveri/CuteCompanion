@@ -41,6 +41,7 @@ struct CuteCompanionApp: App {
     var body: some Scene {
         MenuBarExtra {
             Button("Change Companion") {
+                NSApplication.shared.activate(ignoringOtherApps: true)
                 openWindow(id: "companion-selector")
             }
             Divider()
