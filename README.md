@@ -7,6 +7,12 @@
     🌟 CuteCompanion! 🌟
 </h1>
 
+
+<p align="center">
+  <img src="https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=apple&logoColor=white" style="margin: 0 6px;">
+  <img src="https://img.shields.io/badge/swift-orange?style=for-the-badge&logo=swift&logoColor=white" style="margin: 0 6px;">
+</p>
+
 <p align="center">
   <img src="Gifs/mushroom.gif" width="50" style="margin: 0 10px;">
   <img src="Gifs/funnyDuck.gif" width="50" style="margin: 0 10px;">
