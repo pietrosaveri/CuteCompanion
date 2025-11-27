@@ -50,7 +50,7 @@ They’re there when you’re…
 
 Choose the companion that fits your mood, or meet a new one when you need a different kind of energy.
 
-### 2. **Pixel-art animations** <img src="Gifs/mushroom.gif" width="30" align="center">
+### 2. **Pixel-art animations** <img src="Gifs/mario.gif" width="50" align="center">
 
 Each companion has expressive, smooth, handcrafted animations that feel alive but never distracting.
 
