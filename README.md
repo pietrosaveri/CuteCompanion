@@ -63,8 +63,9 @@ One click and your companion will ~~die~~ rest until you call them back.
 
 Because **YES**. 
 ## Author
-<img src="Gifs/duck.gif" width="" style="float:right; margin-left:20px;">
-Me
+
+
+Me <img src="Gifs/duck.gif" width="" style="float: right;">
 
 
 
