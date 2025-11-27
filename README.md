@@ -62,10 +62,8 @@ One click and your companion will ~~die~~ rest until you call them back.
 ## 🌱 Why Have a Companion?
 
 Because **YES**. 
-
-<img src="Gifs/duck.gif" width="" style="float:right; margin-left:20px;">
-
 ## Author
+<img src="Gifs/duck.gif" width="" style="float:right; margin-left:20px;">
 Me
 
 
