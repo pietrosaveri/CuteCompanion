@@ -25,6 +25,9 @@
 
 No chaos, no noise, just a tiny buddy who moves when you move and stays with you through everything you do on your computer.
 
+  <img src="Gifs/promovideo.gif" style="margin: 0 10px;">
+
+
 ---
 
 ## 🧑‍💻 What is CuteCompanion??? <img src="Gifs/frog.gif" width="70" align="center">
@@ -64,8 +67,13 @@ One click and your companion will ~~die~~ rest until you call them back.
 ## 🌱 Why Have a Companion?
 
 Because **YES**. 
-## Author
 
+
+# Download it and discover all possibile companions!
+
+Coming Soon...
+
+## Author
 
 Me <img src="Gifs/duck.gif" width="" style="float: right;">
 
