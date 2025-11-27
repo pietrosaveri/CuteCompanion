@@ -8,23 +8,27 @@ struct SpriteModel: Identifiable, Hashable {
     var frameWidth: CGFloat?
     var frameHeight: CGFloat?
     var scale: CGFloat = 1.0
+    var yOffset: CGFloat = 0
+    var cutLeft: CGFloat = 0
+    var cutRight: CGFloat = 0
 }
 
 class SpriteManager: ObservableObject {
     @Published var currentFrame: NSImage?
     @Published var currentSprite: SpriteModel
     
-    let availableSprites = [
+    let availableSprites = [ //the framewidth is the width of the image/number of frames
+        SpriteModel(name: "Duky the Duck", assetName: "Duck", frameWidth: 32, frameHeight: 32, yOffset: -3),
         SpriteModel(name: "Mushy", assetName: "mushroom", frameWidth: 48, frameHeight: 48, scale: 0.6),
         SpriteModel(name: "Mort", assetName: "DinoSprites-mort", scale: 1.2),
         SpriteModel(name: "Doux", assetName: "DinoSprites-doux", scale: 1.2),
         SpriteModel(name: "tard", assetName: "DinoSprites-tard", scale: 1.2),
-        SpriteModel(name: "knight", assetName: "Kinght", frameWidth: 22, frameHeight: 24, scale: 1.2), //the framewidth is the width of the image/number of frames
+        SpriteModel(name: "Mighty Knight", assetName: "Kinght", frameWidth: 22, frameHeight: 24, scale: 1.2),
         SpriteModel(name: "Bob", assetName: "GreenFrog", frameWidth: 48, frameHeight: 48),
-        SpriteModel(name: "Cherry", assetName: "cat", frameWidth: 80, frameHeight: 64),
+        SpriteModel(name: "Cherry", assetName: "cat", frameWidth: 80, frameHeight: 64, cutLeft: 20, cutRight: 10),
         SpriteModel(name: "Jonathan", assetName: "Stickman", frameWidth: 64, frameHeight: 64, scale: 0.6),
-        SpriteModel(name: "Vampy The Bat", assetName: "bat", frameWidth: 32, frameHeight: 32, scale: 1.8)
-        
+        SpriteModel(name: "Vampy The Bat", assetName: "bat", frameWidth: 32, frameHeight: 32, scale: 1.8),
+        SpriteModel(name: "Pinguy", assetName: "Pinguin", frameWidth: 64, frameHeight: 64, yOffset: 9, cutLeft: 20, cutRight: 20)
     ]
     
     private var frames: [NSImage] = []
@@ -64,9 +68,30 @@ class SpriteManager: ObservableObject {
             
             if let cgImage = image.cgImage(forProposedRect: nil, context: nil, hints: nil) {
                 if let cropped = cgImage.cropping(to: rect) {
-                    let scaledSize = NSSize(width: frameWidth * sprite.scale, height: frameHeight * sprite.scale)
-                    let nsImage = NSImage(cgImage: cropped, size: scaledSize)
-                    frames.append(nsImage)
+                    // Calculate new dimensions after cutting
+                    let originalWidth = frameWidth
+                    let newWidth = originalWidth - sprite.cutLeft - sprite.cutRight
+                    
+                    // Scale the new dimensions
+                    let scaledWidth = newWidth * sprite.scale
+                    let scaledHeight = frameHeight * sprite.scale
+                    let newSize = NSSize(width: scaledWidth, height: scaledHeight)
+                    
+                    let finalImage = NSImage(size: newSize)
+                    finalImage.lockFocus()
+                    NSGraphicsContext.current?.imageInterpolation = .none
+                    
+                    // Create a source image from the cropped frame
+                    // We need to draw only the part we want
+                    let sourceImage = NSImage(cgImage: cropped, size: NSSize(width: originalWidth * sprite.scale, height: scaledHeight))
+                    
+                    // Draw the image shifted to the left by cutLeft * scale
+                    // This effectively "cuts" the left side by moving it out of the drawing bounds
+                    // And the right side is cut because the destination width is smaller
+                    sourceImage.draw(in: NSRect(x: -sprite.cutLeft * sprite.scale, y: -sprite.yOffset, width: originalWidth * sprite.scale, height: scaledHeight))
+                    
+                    finalImage.unlockFocus()
+                    frames.append(finalImage)
                 }
             }
         }
@@ -120,8 +145,24 @@ class SpriteManager: ObservableObject {
             
             if let cgImage = image.cgImage(forProposedRect: nil, context: nil, hints: nil) {
                 if let cropped = cgImage.cropping(to: rect) {
-                    let nsImage = NSImage(cgImage: cropped, size: NSSize(width: frameWidth, height: frameHeight))
-                    previewFrames.append(nsImage)
+                    // Calculate new dimensions after cutting
+                    let originalWidth = frameWidth
+                    let newWidth = originalWidth - sprite.cutLeft - sprite.cutRight
+                    
+                    // Scale the new dimensions
+                    let scaledWidth = newWidth * sprite.scale
+                    let scaledHeight = frameHeight * sprite.scale
+                    let newSize = NSSize(width: scaledWidth, height: scaledHeight)
+                    
+                    let finalImage = NSImage(size: newSize)
+                    finalImage.lockFocus()
+                    NSGraphicsContext.current?.imageInterpolation = .none
+                    
+                    let sourceImage = NSImage(cgImage: cropped, size: NSSize(width: originalWidth * sprite.scale, height: scaledHeight))
+                    sourceImage.draw(in: NSRect(x: -sprite.cutLeft * sprite.scale, y: -sprite.yOffset, width: originalWidth * sprite.scale, height: scaledHeight))
+                    
+                    finalImage.unlockFocus()
+                    previewFrames.append(finalImage)
                 }
             }
         }
