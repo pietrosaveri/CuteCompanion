@@ -84,4 +84,13 @@ Coming Soon...
 Me <img src="Gifs/duck.gif" width="" style="float: right;">
 
 
+---
+
+**Legal**
+
+- **Privacy Policy:** [Privacy Policy](https://pietrosaveri.github.io/CuteCompanion/SupportSites/privacypolicy.html)
+- **Support:** [Support & Contact](https://pietrosaveri.github.io/CuteCompanion/SupportSites/support.html)
+
+
+
 
