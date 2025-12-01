@@ -77,7 +77,9 @@ Because **YES**.
 
 # Download it and discover all possibile companions!
 
-Coming Soon...
+Coming Soon on App Store for free...
+
+(Currenty under review)
 
 ## Author
 
