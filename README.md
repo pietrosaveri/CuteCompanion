@@ -10,8 +10,12 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=apple&logoColor=white" style="margin: 0 6px;">
+    <a href="https://apps.apple.com/it/app/cute-companion/id6755852692?l=en-GB&mt=12">
+    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" height="28" style="margin: 0 6px;">
+  </a>
   <img src="https://img.shields.io/badge/swift-orange?style=for-the-badge&logo=swift&logoColor=white" style="margin: 0 6px;">
 </p>
+
 
 <p align="center">
   <img src="Gifs/mushroom.gif" width="50" style="margin: 0 10px;">
@@ -77,9 +81,13 @@ Because **YES**.
 
 # Download it and discover all possibile companions!
 
-Coming Soon on App Store for free...
+Now avaible on the app store!
+<div align="center">
+  <a href="https://apps.apple.com/it/app/cute-companion/id6755852692?l=en-GB&mt=12">
+    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" width="200">
+  </a>
+</div>
 
-(Currenty under review)
 
 ## Author
 
